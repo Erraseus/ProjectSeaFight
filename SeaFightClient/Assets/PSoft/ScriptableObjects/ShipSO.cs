@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipSO : MonoBehaviour
+[CreateAssetMenu(menuName = "Components/Ship", fileName = "NewShip")]
+public class ShipSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int id;
+    [Space]
+    [Header("General Information")]
+    public new string name;
+    public Sprite icon;
+    [Space]
+    [Header("Specific Information")]
+    public GameObject Model;
+    public float sight;
+    public int health;
+    [Space]
+    [Header("Ship Slots")]
+    public int cannonSlots;
+    public int sailSlots;
+    public int crewSlots;
+    [Space]
+    public int inventorySlots;
 }
