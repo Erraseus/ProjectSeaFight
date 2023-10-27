@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     [Header("Connect")]
     [SerializeField] private GameObject connectUI;
     [SerializeField] private InputField usernameField;
+    [SerializeField] private InputField ipadressField;
     [SerializeField] public static GameObject Market;
 
     private void Awake()
@@ -40,7 +41,7 @@ public class UIManager : MonoBehaviour
         usernameField.interactable = false;
         connectUI.SetActive(false);
 
-        NetworkManager.Singleton.Connect();
+        NetworkManager.Singleton.Connect(ipadressField.text);
     }
 
     public void BackToMain()

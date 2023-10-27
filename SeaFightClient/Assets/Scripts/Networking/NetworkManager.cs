@@ -75,9 +75,9 @@ public class NetworkManager : MonoBehaviour
         Client.Disconnect();
     }
 
-    public void Connect()
+    public void Connect(String ipadresse)
     {
-        Client.Connect(ip + ":" + port);
+        Client.Connect(ipadresse + ":" + port);
     }
 
     private void DidConnect(object sender, EventArgs e)
