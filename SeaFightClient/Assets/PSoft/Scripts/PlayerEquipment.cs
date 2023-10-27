@@ -21,7 +21,7 @@ public class PlayerEquipment : MonoBehaviour
     void BuildShip()
     {
         //TODO: Get this from Database//
-        ship = GameObject.Find("Database").GetComponent<ComponentData>().ships[0];
+        ship = GameObject.Find("Database").GetComponent<ComponentData>().ships[DEBUGShiplevel];
 
         for (int i = 0; i < ship.cannonSlots; i++)
         {

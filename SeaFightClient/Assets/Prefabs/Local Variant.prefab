@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5904f54edc612ed4d9e8f8c788088441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DEBUGShiplevel: 2
+  DEBUGShiplevel: 0
   ship: {fileID: 0}
   cannons: []
   sails: []
