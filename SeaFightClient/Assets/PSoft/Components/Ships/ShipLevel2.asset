@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 1
   name: Schiff
   icon: {fileID: 0}
-  Model: {fileID: 0}
+  Model: {fileID: 3662619346358676304, guid: d8d12f8c20799a948959d37b7db35bf7, type: 3}
   sight: 12
   health: 120
   cannonSlots: 10

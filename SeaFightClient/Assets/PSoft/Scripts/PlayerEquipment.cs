@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerEquipment : MonoBehaviour
 {
+    [SerializeField] int DEBUGShiplevel;
+
     [SerializeField] ShipSO ship;
     [SerializeField] List<CannonSO> cannons = new List<CannonSO>();
     [SerializeField] List<SailSO> sails = new List<SailSO>();
@@ -11,6 +13,9 @@ public class PlayerEquipment : MonoBehaviour
     private void Awake()
     {
         BuildShip();
+
+        GameObject shipModel = Instantiate(ship.Model);
+        shipModel.transform.SetParent(this.transform);
     }
 
     void BuildShip()

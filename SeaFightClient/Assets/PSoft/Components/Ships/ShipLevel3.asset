@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 2
   name: "Gro\xDFes Schiff"
   icon: {fileID: 0}
-  Model: {fileID: 0}
+  Model: {fileID: 2387905213454993617, guid: 0767dbf481e49e04aa71b328371581a8, type: 3}
   sight: 14
   health: 140
   cannonSlots: 15
