@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Schwache Kanone
   icon: {fileID: 0}
   damage: 10
-  range: 8
-  reloadSpeed: 4
+  range: 4
+  reloadTime: 4.5
   hitChance: 85
   critChance: 0

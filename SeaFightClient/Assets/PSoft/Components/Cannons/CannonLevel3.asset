@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Starke Kanone
   icon: {fileID: 0}
   damage: 20
-  range: 14
-  reloadSpeed: 2
-  hitChance: 95
-  critChance: 25
+  range: 8
+  reloadTime: 2
+  hitChance: 80
+  critChance: 20

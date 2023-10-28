@@ -9,8 +9,8 @@ public class Camera : MonoBehaviour
 
     public Vector3 transitionPosition;  // Die Zielposition, zu der die Kamera bewegt werden soll
     public Quaternion transitionRotation;  // Die Zielausrichtung (Rotation) der Kamera
-    public float bewegungsgeschwindigkeit = 2.0f;  // Die Geschwindigkeit, mit der die Kamera bewegt wird
-    public float rotationsgeschwindigkeit = 2.0f;  // Die Geschwindigkeit, mit der die Kamera rotiert wird
+    public float bewegungsgeschwindigkeit = 5.0f;  // Die Geschwindigkeit, mit der die Kamera bewegt wird
+    public float rotationsgeschwindigkeit = 5.0f;  // Die Geschwindigkeit, mit der die Kamera rotiert wird
 
     private Vector3 dragStartPosition;
     private Vector3 dragCurrentPosition;
@@ -95,23 +95,24 @@ public class Camera : MonoBehaviour
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         driveModeDistance = Mathf.Clamp(driveModeDistance - scroll * driveModeZoomSpeed, driveModeMinDistance, driveModeMaxDistance);
 
-
-
-
-
-
-
-
-
+        if (Input.GetMouseButtonDown(1))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         if (Input.GetMouseButton(1))
         {
             float mouseX = Input.GetAxis("Mouse X");
             float mouseY = Input.GetAxis("Mouse Y");
             rotationX += mouseX * driveModeRotationSpeed;
         }
-        Quaternion rotation = Quaternion.Euler(driveModeYRotation, rotationX, 0);
+        if (Input.GetMouseButtonUp(1))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
 
-        transform.position = ship.transform.position + rotation * offset - transform.forward * driveModeDistance;
+        Quaternion rotationEulerX = Quaternion.Euler(0, rotationX, 0);
+
+        transform.position = ship.transform.position + rotationEulerX * offset - transform.forward * driveModeDistance;
         transform.LookAt(ship.transform);
 
         lastDrivePostition = transform.position - ship.transform.position;

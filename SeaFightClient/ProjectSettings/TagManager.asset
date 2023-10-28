@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Marker
   - Market
+  - Enemy
   layers:
   - Default
   - TransparentFX

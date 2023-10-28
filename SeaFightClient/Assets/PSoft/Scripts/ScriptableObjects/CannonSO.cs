@@ -12,7 +12,7 @@ public class CannonSO : ScriptableObject
     [Header("Specific Information")]
     public int damage;
     public float range;
-    public float reloadSpeed;
+    public float reloadTime;
     [Space]
     [Range(0f, 100f)] public float hitChance;
     [Range(0f, 100f)] public float critChance;

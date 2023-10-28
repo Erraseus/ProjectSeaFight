@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Kanone
   icon: {fileID: 0}
   damage: 15
-  range: 12
-  reloadSpeed: 3
+  range: 6
+  reloadTime: 3
   hitChance: 90
   critChance: 15
