@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
 
         usernameField.interactable = false;
         connectUI.SetActive(false);
-
+        if (ipadressField.text == "") ipadressField.text = "127.0.0.1";
         NetworkManager.Singleton.Connect(ipadressField.text);
     }
 
