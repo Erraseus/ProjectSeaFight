@@ -1624,7 +1624,7 @@ GameObject:
   - component: {fileID: 1033788151}
   - component: {fileID: 1033788150}
   m_Layer: 5
-  m_Name: ConnecedUI
+  m_Name: ConnectUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2435,9 +2435,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_NormalColor: {r: 0.24007654, g: 0.6132076, b: 0.2665978, a: 1}
+    m_HighlightedColor: {r: 0.042452812, g: 1, b: 0.14621016, a: 1}
+    m_PressedColor: {r: 0, g: 0.41509432, b: 0.053230554, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -3095,7 +3095,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Conneced
+  m_Text: 'Connect
+
+'
 --- !u!222 &1877840278
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3354,80 +3356,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11e91b3b5d474bb4091b486be1b6a025, type: 3}
---- !u!1001 &3205843848513692876
-PrefabInstance:
+--- !u!4 &2469716179440373818
+Transform:
   m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579199509355138747}
   serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1025483953841353974, guid: 020068031ac1c40478384743d40792fb,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.7114015
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025483953841353974, guid: 020068031ac1c40478384743d40792fb,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 9.61495
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025483953841353974, guid: 020068031ac1c40478384743d40792fb,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -9.406498
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025483953841353974, guid: 020068031ac1c40478384743d40792fb,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025483953841353974, guid: 020068031ac1c40478384743d40792fb,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025483953841353974, guid: 020068031ac1c40478384743d40792fb,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025483953841353974, guid: 020068031ac1c40478384743d40792fb,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025483953841353974, guid: 020068031ac1c40478384743d40792fb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025483953841353974, guid: 020068031ac1c40478384743d40792fb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025483953841353974, guid: 020068031ac1c40478384743d40792fb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7735867635631263790, guid: 020068031ac1c40478384743d40792fb,
-        type: 3}
-      propertyPath: m_NavMeshData
-      value: 
-      objectReference: {fileID: 23800000, guid: 77524c75342395a47bffdb062a30d805,
-        type: 2}
-    - target: {fileID: 8589335249875249783, guid: 020068031ac1c40478384743d40792fb,
-        type: 3}
-      propertyPath: m_Name
-      value: NavMesh Surface
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 020068031ac1c40478384743d40792fb, type: 3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.7114015, y: 9.61495, z: -9.406498}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5126824114173621474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579199509355138747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.34666666
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 77524c75342395a47bffdb062a30d805, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1001 &6071499403406123428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3506,6 +3480,23 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdaf687a48808cd408403a3d45fef829, type: 3}
+--- !u!1 &6579199509355138747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2469716179440373818}
+  - component: {fileID: 5126824114173621474}
+  m_Layer: 0
+  m_Name: NavMesh Surface
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3517,6 +3508,6 @@ SceneRoots:
   - {fileID: 288512073}
   - {fileID: 1469271104}
   - {fileID: 1870367143}
-  - {fileID: 3205843848513692876}
+  - {fileID: 2469716179440373818}
   - {fileID: 807164867}
   - {fileID: 6071499403406123428}
