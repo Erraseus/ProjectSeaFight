@@ -5,8 +5,8 @@ using UnityEngine;
 public class WaterReflection : MonoBehaviour
 {
     // referenses
-    public Camera mainCamera;
-    Camera reflectionCamera;
+    public CameraMain mainCamera;
+    CameraMain reflectionCamera;
 
     [Tooltip("The plane where the camera will be reflected, the water plane or any object with the same position and rotation")]
     public Transform reflectionPlane;
@@ -25,7 +25,7 @@ public class WaterReflection : MonoBehaviour
     public void Awake()
     {
 
-        reflectionCamera = GetComponent<Camera>();
+        reflectionCamera = GetComponent<CameraMain>();
 
         Validate();
     }
