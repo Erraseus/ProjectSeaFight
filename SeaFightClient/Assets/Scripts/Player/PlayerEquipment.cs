@@ -6,7 +6,7 @@ public class PlayerEquipment : MonoBehaviour
 {
     [SerializeField][Range(0, 2)] int DEBUGCannonlevel;
     [SerializeField][Range(0, 2)] int DEBUGSaillevel;
-    public int ShipLevel;
+    public int shipLevel;
 
     [Space]
     [SerializeField] ShipSO ship;
@@ -41,7 +41,7 @@ public class PlayerEquipment : MonoBehaviour
     void InitialiseShip()
     {
         //TODO: Daten von der Datenbank ziehen//
-        ship = GameObject.Find("DataManager").GetComponent<ComponentData>().ships[ShipLevel];
+        ship = GameObject.Find("DataManager").GetComponent<ComponentData>().ships[shipLevel];
 
         for (int i = 0; i < ship.cannonSlots; i++)
         {
@@ -99,5 +99,13 @@ public class PlayerEquipment : MonoBehaviour
     {
         //Benötigt Gameplay Tests für die Implementierung;
         return;
+    }
+    public void ChangeShip(int id, GameObject oldShipModel)
+    {
+        Transform currentTransform = oldShipModel.transform;
+        Destroy(oldShipModel);
+        ship = GameObject.Find("DataManager").GetComponent<ComponentData>().ships[id];
+        GameObject shipModel = Instantiate(ship.Model, currentTransform.position, currentTransform.rotation);
+        shipModel.transform.SetParent(this.transform);
     }
 }

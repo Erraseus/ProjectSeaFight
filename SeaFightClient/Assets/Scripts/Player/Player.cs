@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
             player = Instantiate(GameLogic.Singleton.LocalPlayerPrefab, position, Quaternion.identity).GetComponent<Player>();
             player.IsLocal = true;
 
-            player.GetComponent<PlayerEquipment>().ShipLevel = ship;
+            player.GetComponent<PlayerEquipment>().shipLevel = ship;
 
         }
         else

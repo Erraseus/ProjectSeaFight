@@ -73,10 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5904f54edc612ed4d9e8f8c788088441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipComponent: {fileID: 0}
-  DEBUGShiplevel: 1
   DEBUGCannonlevel: 2
   DEBUGSaillevel: 0
+  ShipLevel: 0
   ship: {fileID: 0}
   cannons: []
   sails: []
