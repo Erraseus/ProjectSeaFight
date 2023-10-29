@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class CameraMain : MonoBehaviour
 {
     public GameObject ship;
 
@@ -178,7 +178,7 @@ public class Camera : MonoBehaviour
         }
     }
 
-    internal void CopyFrom(Camera mainCamera)
+    internal void CopyFrom(CameraMain mainCamera)
     {
         throw new NotImplementedException();
     }

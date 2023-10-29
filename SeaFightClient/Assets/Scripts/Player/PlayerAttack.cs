@@ -5,15 +5,48 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    PlayerEquipment playerStats;
-
+    [SerializeField] PlayerEquipment playerStats;
     [SerializeField] GameObject cannonball;
 
+    [SerializeField] List<GameObject> enemies;
+
+    bool attackState = false;
+
+    Vector3 attackRangeIndicator;
     private void Start()
     {
-        playerStats = GetComponent<PlayerEquipment>();
-        StartCoroutine(ShootCannon());
+        attackRangeIndicator = new Vector3(playerStats.attackRange, transform.localScale.y, playerStats.attackRange);
+
+        transform.localScale = attackRangeIndicator;
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            enemies.Add(other.gameObject);
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            enemies.Remove(other.gameObject);
+        }
+    }
+    private void Update()
+    {
+        if (enemies.Count > 0 && !attackState)
+        {
+            attackState = true;
+            StartCoroutine(ShootCannon());
+        }
+        if (enemies.Count <= 0 && attackState)
+        {
+            attackState = false;
+            StopAllCoroutines();
+        }
+    }
+
 
     IEnumerator ShootCannon()
     {

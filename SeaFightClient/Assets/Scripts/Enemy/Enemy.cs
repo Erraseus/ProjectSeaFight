@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject indicator;
     [SerializeField] List<GameObject> ships;
 
+
+
     bool hasclicked = false;
 
     void OnMouseEnter()
