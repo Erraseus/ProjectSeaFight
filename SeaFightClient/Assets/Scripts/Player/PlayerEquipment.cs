@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class PlayerEquipment : MonoBehaviour
 {
+    [Header("DataManager")]
+    [SerializeField] ComponentData shipComponent;
+    [Header("DEBUG")]
     [SerializeField][Range(0, 2)] int DEBUGCannonlevel;
     [SerializeField][Range(0, 2)] int DEBUGSaillevel;
+
     public int shipLevel;
 
     [Space]
@@ -32,6 +36,8 @@ public class PlayerEquipment : MonoBehaviour
 
     void Awake()
     {
+        shipComponent = GameObject.Find("DataManager").GetComponent<ComponentData>();
+
         InitialiseShip();
         CalculateCannon();
         CalculateSail();
@@ -41,21 +47,21 @@ public class PlayerEquipment : MonoBehaviour
     void InitialiseShip()
     {
         //TODO: Daten von der Datenbank ziehen//
-        ship = GameObject.Find("DataManager").GetComponent<ComponentData>().ships[shipLevel];
+        ship = shipComponent.ships[shipLevel];
 
         for (int i = 0; i < ship.cannonSlots; i++)
         {
-            cannons.Add(GameObject.Find("DataManager").GetComponent<ComponentData>().cannons[DEBUGCannonlevel]);
+            cannons.Add(shipComponent.cannons[DEBUGCannonlevel]);
         }
         for (int i = 0; i < ship.sailSlots; i++)
         {
-            sails.Add(GameObject.Find("DataManager").GetComponent<ComponentData>().sails[DEBUGSaillevel]);
+            sails.Add(shipComponent.sails[DEBUGSaillevel]);
         }
         for (int i = 0; i < ship.crewSlots; i++)
         {
-            crewMembers.Add(GameObject.Find("DataManager").GetComponent<ComponentData>().crewMembers[0]);
+            crewMembers.Add(shipComponent.crewMembers[0]);
         }
-        //TODO: End
+
         maxHp = ship.health;
         currentHP = ship.health;
         sight = ship.sight;
@@ -104,8 +110,9 @@ public class PlayerEquipment : MonoBehaviour
     {
         Transform currentTransform = oldShipModel.transform;
         Destroy(oldShipModel);
-        ship = GameObject.Find("DataManager").GetComponent<ComponentData>().ships[id];
+        ship = shipComponent.ships[id];
         GameObject shipModel = Instantiate(ship.Model, currentTransform.position, currentTransform.rotation);
         shipModel.transform.SetParent(this.transform);
     }
+
 }
