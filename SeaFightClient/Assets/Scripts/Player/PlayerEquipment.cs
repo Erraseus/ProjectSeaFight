@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerEquipment : MonoBehaviour
 {
-    [SerializeField] [Range(0,2)] int DEBUGShiplevel;
     [SerializeField][Range(0, 2)] int DEBUGCannonlevel;
     [SerializeField][Range(0, 2)] int DEBUGSaillevel;
+    public int ShipLevel;
 
     [Space]
     [SerializeField] ShipSO ship;
@@ -41,7 +41,7 @@ public class PlayerEquipment : MonoBehaviour
     void InitialiseShip()
     {
         //TODO: Daten von der Datenbank ziehen//
-        ship = GameObject.Find("DataManager").GetComponent<ComponentData>().ships[DEBUGShiplevel];
+        ship = GameObject.Find("DataManager").GetComponent<ComponentData>().ships[ShipLevel];
 
         for (int i = 0; i < ship.cannonSlots; i++)
         {

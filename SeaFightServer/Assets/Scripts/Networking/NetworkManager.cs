@@ -7,12 +7,13 @@ public enum ServerToClientId : ushort
     playerSpawned,
     playerMove,
     handel,
+    startInformations,
 }
 
 public enum ClientToServerId : ushort
 {
-    name = 1,
     MovePosition,
+    Login,
 }
 
 public class NetworkManager : MonoBehaviour

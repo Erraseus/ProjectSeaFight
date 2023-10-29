@@ -22,11 +22,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
-    [Header("Connect")]
-    [SerializeField] private GameObject connectUI;
-    [SerializeField] private InputField usernameField;
-    [SerializeField] private InputField ipadressField;
     [SerializeField] public static GameObject Market;
 
     private void Awake()
@@ -35,35 +30,12 @@ public class UIManager : MonoBehaviour
         Market = gameObject.transform.Find("Market").gameObject;
     }
 
-    public void ConnectClicked()
-    {
-
-        usernameField.interactable = false;
-        connectUI.SetActive(false);
-        if (ipadressField.text == "") ipadressField.text = "127.0.0.1";
-        NetworkManager.Singleton.Connect(ipadressField.text);
-    }
-
-    public void BackToMain()
-    {
-        usernameField.interactable = true;
-        connectUI.SetActive(true);
-
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-    }
-
     public void ExitMarket()
     {
         Market.gameObject.SetActive(false);
     }
 
-    public void SendName()
-    {
-        Message message = Message.Create(MessageSendMode.Reliable, (ushort)ClientToServerId.name);
-        message.AddString(usernameField.text);
-        NetworkManager.Singleton.Client.Send(message);
-    }
+
 
     [MessageHandler((ushort)ServerToClientId.handel)]
     private static void PlayerHandel(Message message)

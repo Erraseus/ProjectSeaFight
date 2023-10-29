@@ -1,6 +1,7 @@
 using Riptide;
 using Riptide.Utils;
 using System;
+using System.Net;
 using UnityEngine;
 
 
@@ -12,21 +13,20 @@ public enum ServerToClientId : ushort
     playerSpawned,
     playerMove,
     handel,
+    startInformations,
 }
 
 public enum ClientToServerId : ushort
 {
-    name = 1,
     MovePosition,
+    Login,
 }
-
 
 
 
 
 public class NetworkManager : MonoBehaviour
 {
-
 
     private static NetworkManager _singleton;
     public static NetworkManager Singleton
@@ -46,6 +46,7 @@ public class NetworkManager : MonoBehaviour
     private void Awake()
     {
         Singleton = this;
+        
     }
 
 
@@ -53,7 +54,7 @@ public class NetworkManager : MonoBehaviour
 
     [SerializeField] private string ip;
     [SerializeField] private ushort port;
-
+    public MainMenu mainMenu;
 
     private void Start()
     {
@@ -75,24 +76,24 @@ public class NetworkManager : MonoBehaviour
         Client.Disconnect();
     }
 
-    public void Connect(String ipadresse)
+    public void Connect()
     {
-        Client.Connect(ipadresse + ":" + port);
+        Client.Connect(ip + ":" + port);
     }
 
     private void DidConnect(object sender, EventArgs e)
     {
-        UIManager.Singleton.SendName();
+        mainMenu.open_login();
     }
 
     private void FailedToConnect(object sender, EventArgs e)
     {
-        UIManager.Singleton.BackToMain();
+        mainMenu.connectRetry();
     }
 
     private void DidDisconnect(object sender, EventArgs e)
     {
-        UIManager.Singleton.BackToMain();
+        mainMenu.connectRetry();
     }
 
 }

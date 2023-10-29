@@ -7,6 +7,7 @@ TagManager:
   - Marker
   - Market
   - Enemy
+  - MainMenu
   layers:
   - Default
   - TransparentFX
