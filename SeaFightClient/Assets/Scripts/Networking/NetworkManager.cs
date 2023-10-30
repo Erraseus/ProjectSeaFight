@@ -14,6 +14,7 @@ public enum ServerToClientId : ushort
     playerMove,
     handel,
     startInformations,
+    NPCSpawn,
 }
 
 public enum ClientToServerId : ushort
