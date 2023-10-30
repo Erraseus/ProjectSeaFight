@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerEquipment : MonoBehaviour
 {
     [Header("DataManager")]
-    [SerializeField] ComponentData shipComponent;
+    [SerializeField] LocalDatabase shipComponent;
     [Header("DEBUG")]
     [SerializeField][Range(0, 2)] int DEBUGCannonlevel;
     [SerializeField][Range(0, 2)] int DEBUGSaillevel;
@@ -35,7 +35,7 @@ public class PlayerEquipment : MonoBehaviour
 
     void Awake()
     {
-        shipComponent = GameObject.Find("DataManager").GetComponent<ComponentData>();
+        shipComponent = GameObject.Find("DataManager").GetComponent<LocalDatabase>();
 
         InitialiseShip();
         CalculateCannon();

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComponentData : MonoBehaviour
+public class LocalDatabase : MonoBehaviour
 {
     public List<ShipSO> ships = new List<ShipSO>();
     public List<CannonSO> cannons = new List<CannonSO>();

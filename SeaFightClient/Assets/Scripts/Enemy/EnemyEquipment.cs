@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyEquipment : MonoBehaviour
 {
     [Header("DataManager")]
-    [SerializeField] ComponentData shipComponent;
+    [SerializeField] LocalDatabase shipComponent;
 
     [Space]
     [SerializeField] ShipSO ship;
@@ -30,7 +30,7 @@ public class EnemyEquipment : MonoBehaviour
 
     void Awake()
     {
-        shipComponent = GameObject.Find("DataManager").GetComponent<ComponentData>();
+        shipComponent = GameObject.Find("DataManager").GetComponent<LocalDatabase>();
 
         InitialiseShip();
         CalculateCannon();

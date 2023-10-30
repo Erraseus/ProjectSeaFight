@@ -20,5 +20,5 @@ MonoBehaviour:
   health: 140
   cannonSlots: 50
   sailSlots: 4
-  crewSlots: 0
+  crewSlots: 10
   inventorySlots: 40
