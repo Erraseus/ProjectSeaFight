@@ -17,5 +17,6 @@ public class Market : MonoBehaviour
             NetworkManager.Singleton.Server.Send(message, toClientId);
 
         }
+
     }
 }
