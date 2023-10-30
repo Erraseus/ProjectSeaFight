@@ -8,7 +8,6 @@ TagManager:
   - Market
   - Enemy
   - MainMenu
-  - Ship
   layers:
   - Default
   - TransparentFX

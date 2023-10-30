@@ -1,15 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerEquipment : MonoBehaviour
+public class EnemyEquipment : MonoBehaviour
 {
     [Header("DataManager")]
     [SerializeField] ComponentData shipComponent;
-    [Header("DEBUG")]
-    [SerializeField][Range(0, 2)] int DEBUGCannonlevel;
-    [SerializeField][Range(0, 2)] int DEBUGSaillevel;
-
-    public int shipLevel;
 
     [Space]
     [SerializeField] ShipSO ship;
@@ -45,16 +40,15 @@ public class PlayerEquipment : MonoBehaviour
 
     void InitialiseShip()
     {
-        //TODO: Daten von der Datenbank ziehen//
-        ship = shipComponent.ships[shipLevel];
+        ship = shipComponent.ships[0];
 
         for (int i = 0; i < ship.cannonSlots; i++)
         {
-            cannons.Add(shipComponent.cannons[DEBUGCannonlevel]);
+            cannons.Add(shipComponent.cannons[0]);
         }
         for (int i = 0; i < ship.sailSlots; i++)
         {
-            sails.Add(shipComponent.sails[DEBUGSaillevel]);
+            sails.Add(shipComponent.sails[0]);
         }
         for (int i = 0; i < ship.crewSlots; i++)
         {
@@ -66,7 +60,7 @@ public class PlayerEquipment : MonoBehaviour
         sight = ship.sight;
 
         GameObject shipModel = Instantiate(ship.Model, new Vector3(transform.position.x, 0, transform.position.z), transform.rotation);
-        shipModel.tag = "Player";
+        shipModel.tag = "Enemy";
         shipModel.transform.SetParent(this.transform);
     }
 
@@ -108,14 +102,4 @@ public class PlayerEquipment : MonoBehaviour
         //Benötigt Gameplay Tests für die Implementierung;
         return;
     }
-    public void ChangeShip(int id, GameObject oldModel)
-    {
-        Transform currentTransform = oldModel.transform;
-        Destroy(oldModel);
-        ship = shipComponent.ships[id];
-        GameObject shipModel = Instantiate(ship.Model, currentTransform.position, currentTransform.rotation);
-        shipModel.tag = "Player";
-        shipModel.transform.SetParent(this.transform);
-    }
-
 }

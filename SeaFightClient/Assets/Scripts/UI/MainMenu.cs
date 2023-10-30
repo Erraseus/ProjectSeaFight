@@ -9,6 +9,12 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] GameObject startMenu;
+
+    private void Awake()
+    {
+        startMenu.SetActive(true);
+    }
 
     private static MainMenu _singleton;
     public static MainMenu Singleton

@@ -9,7 +9,7 @@ public class GetShipLevel : MonoBehaviour
     [SerializeField] PlayerEquipment playerEquipment;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Ship")
+        if (other.tag == "Player")
         {
             playerEquipment = other.GetComponentInParent<PlayerEquipment>();
             if (playerEquipment.shipLevel != shipLevel.id)
