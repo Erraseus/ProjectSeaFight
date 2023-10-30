@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LocalShipHandler : MonoBehaviour
+public class ShipHandler : MonoBehaviour
 {
     [SerializeField] string databaseLocation;
-    [SerializeField] LocalDatabase database;
+    [SerializeField] Database database;
     [SerializeField] GameObject shipModel;
     [SerializeField] type Type;
     [Header("Current Ship Data")]
@@ -34,10 +34,10 @@ public class LocalShipHandler : MonoBehaviour
         
     }
 
-    LocalDatabase GetLocalDatabase(string location)
+    Database GetLocalDatabase(string location)
     {
-        LocalDatabase database;
-        database = GameObject.Find(location).GetComponent<LocalDatabase>();
+        Database database;
+        database = GameObject.Find(location).GetComponent<Database>();
         return database;
     }
 

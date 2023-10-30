@@ -5917,7 +5917,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1825626248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64ef0f325e7c55146ba6dee8a68fefaa, type: 3}
+  m_Script: {fileID: 11500000, guid: bffa7a85e518d924e8f88a41f5ea1bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ships:
@@ -6533,7 +6533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2077541044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6548,8 +6548,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   databaseLocation: DataManager
   database: {fileID: 0}
+  shipModel: {fileID: 0}
   Type: 0
   currentShip: {fileID: 0}
+  currentMaxHP: 0
+  currentHP: 0
   cannons: []
   sails: []
   crewMembers: []

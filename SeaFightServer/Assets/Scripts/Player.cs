@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         player.name = $"Player {id} ({(string.IsNullOrEmpty(username) ? "Guest" : username)})";
         player.Id = id;
         player.Username = string.IsNullOrEmpty(username) ? $"Guest {id}" : username;
-
+        player.GetComponent<ShipHandler>().sqlShipID = ship;
         player.SendSpawned(ship);
         list.Add(id, player);
     }
