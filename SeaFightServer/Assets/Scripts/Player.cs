@@ -98,6 +98,8 @@ public class Player : MonoBehaviour
     }
 
 
+
+
     private static IEnumerator SendRegistrationData(string name, string password, string email, ushort toClientID)
     {
         WWWForm form = new WWWForm();

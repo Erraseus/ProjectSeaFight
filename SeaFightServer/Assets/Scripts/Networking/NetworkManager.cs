@@ -1,6 +1,10 @@
 using Riptide;
 using Riptide.Utils;
+using System;
+using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public enum ServerToClientId : ushort
 {
@@ -39,6 +43,8 @@ public class NetworkManager : MonoBehaviour
     [SerializeField] private ushort port;
     [SerializeField] private ushort maxClientCount;
 
+    public static String SQL_Output;
+    public string response;
     private void Awake()
     {
         Singleton = this;
@@ -65,7 +71,7 @@ public class NetworkManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Server.Update();
+        Server.Update();        
     }
 
     private void OnApplicationQuit()
@@ -79,5 +85,24 @@ public class NetworkManager : MonoBehaviour
             Destroy(player.gameObject);
     }
 
+
+    public IEnumerator SendSQL(string sqlQuery, Action<string> callback)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("sql_query", sqlQuery);
+        UnityWebRequest request = UnityWebRequest.Post("http://piratetest.mygamesonline.org/sql.php", form);
+
+        yield return request.SendWebRequest();
+
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.LogError("Fehler beim Senden der SQL-Anfrage: " + request.error);
+        }
+        else
+        {
+            string response = request.downloadHandler.text.Trim();
+            callback(response);
+        }
+    }
 
 }
