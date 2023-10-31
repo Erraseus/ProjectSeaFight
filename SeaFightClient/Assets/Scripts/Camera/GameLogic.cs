@@ -23,6 +23,7 @@ public class GameLogic : MonoBehaviour
     private void Awake()
     {
         Singleton = this;
+        Application.runInBackground = true;
     }
 
     public GameObject LocalPlayerPrefab => localPlayerPrefab;

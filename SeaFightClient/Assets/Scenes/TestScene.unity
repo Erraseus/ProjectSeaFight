@@ -5886,6 +5886,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1825626249}
   - component: {fileID: 1825626250}
+  - component: {fileID: 1825626251}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -5941,6 +5942,25 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ab6ae14d8ce27f448902b13d015b3363, type: 2}
   - {fileID: 11400000, guid: 02d1460ae1fc13646bd6dda7d2afd069, type: 2}
   - {fileID: 11400000, guid: 6b24575d71e429b4e9722fcc9de412c2, type: 2}
+--- !u!114 &1825626251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825626248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776cc50760be0a9459209fe63bc922d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  name: 
+  shipLevel: 0
+  cannonSlots: 
+  sailSlots: 
+  crewSlots: 
+  inventorySlots: 
 --- !u!4 &1852479620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2516448036189165858, guid: 230109ce23404c24e93180f954526831,

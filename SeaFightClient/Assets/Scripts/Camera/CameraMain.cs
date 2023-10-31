@@ -1,11 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class CameraMain : MonoBehaviour
 {
     public GameObject ship;
+
+    Vector2 currentMousePosition = Vector2.zero;
 
     public Vector3 transitionPosition;  // Die Zielposition, zu der die Kamera bewegt werden soll
     public Quaternion transitionRotation;  // Die Zielausrichtung (Rotation) der Kamera
@@ -97,7 +101,8 @@ public class CameraMain : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            currentMousePosition = CursorControl.GetPosition();
+            Cursor.visible = false;
         }
         if (Input.GetMouseButton(1))
         {
@@ -107,7 +112,8 @@ public class CameraMain : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(1))
         {
-            Cursor.lockState = CursorLockMode.None;
+            CursorControl.SetPosition(currentMousePosition);
+            Cursor.visible = true;
         }
 
         Quaternion rotationEulerX = Quaternion.Euler(0, rotationX, 0);

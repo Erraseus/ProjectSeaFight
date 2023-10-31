@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipHandler : MonoBehaviour
+public class ServerShiphandler : MonoBehaviour
 {
     [SerializeField] string databaseLocation;
     [SerializeField] Database database;

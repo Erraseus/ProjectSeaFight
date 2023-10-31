@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipHandler : MonoBehaviour
+public class CliendShiphandler : MonoBehaviour
 {
     [SerializeField] string databaseLocation;
-    [SerializeField] Database database;
+    [SerializeField] ClientDatabase database;
     [SerializeField] GameObject shipModel;
     [SerializeField] type Type;
     [Header("Current Ship Data")]
@@ -18,6 +18,7 @@ public class ShipHandler : MonoBehaviour
     [SerializeField] List<CannonSO> cannons = new List<CannonSO>();
     [SerializeField] List<SailSO> sails = new List<SailSO>();
     [SerializeField] List<CrewSO> crewMembers = new List<CrewSO>();
+    
     int sqlShipID = 1;
     
     [SerializeField] enum type { Player, Enemy, Npc}
@@ -34,10 +35,10 @@ public class ShipHandler : MonoBehaviour
         
     }
 
-    Database GetLocalDatabase(string location)
+    ClientDatabase GetLocalDatabase(string location)
     {
-        Database database;
-        database = GameObject.Find(location).GetComponent<Database>();
+        ClientDatabase database;
+        database = GameObject.Find(location).GetComponent<ClientDatabase>();
         return database;
     }
 

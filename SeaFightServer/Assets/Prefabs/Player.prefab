@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3734884590150183916}
   - component: {fileID: 3853678127677802933}
   - component: {fileID: 4819338437739737487}
+  - component: {fileID: 5881417299062409050}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -150,7 +151,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 0.92
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!65 &3853678127677802933
@@ -201,3 +202,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5881417299062409050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3076338698994228249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1f0e064d9ebef40947dca3dfaa75ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  databaseLocation: DataManager
+  database: {fileID: 0}
+  shipModel: {fileID: 0}
+  Type: 0
+  currentShip: {fileID: 0}
+  currentMaxHP: 0
+  currentHP: 0
+  cannons: []
+  sails: []
+  crewMembers: []
+  sqlShipID: 1
