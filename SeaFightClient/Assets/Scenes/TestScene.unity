@@ -11768,8 +11768,8 @@ MonoBehaviour:
   lastMapRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
   lastDrivePostition: {x: 0, y: 0, z: 0}
   lastDriveRotation: {x: 0, y: 0, z: 0, w: 0}
-  MapCanvas: {fileID: 0}
-  DriveCanvas: {fileID: 0}
+  MapCanvas: {fileID: 1172845213}
+  DriveCanvas: {fileID: 754141862}
 --- !u!4 &957229924
 Transform:
   m_ObjectHideFlags: 0
