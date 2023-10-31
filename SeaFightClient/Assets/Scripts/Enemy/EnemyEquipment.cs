@@ -5,7 +5,7 @@ public class EnemyEquipment : MonoBehaviour
 {
     [Header("DataManager")]
     [SerializeField] ClientDatabase shipComponent;
-
+    [SerializeField] int enemyLevel;
     [Space]
     [SerializeField] ShipSO ship;
     [SerializeField] List<CannonSO> cannons = new List<CannonSO>();
@@ -40,7 +40,7 @@ public class EnemyEquipment : MonoBehaviour
 
     void InitialiseShip()
     {
-        ship = shipComponent.ships[0];
+        ship = shipComponent.ships[enemyLevel];
 
         for (int i = 0; i < ship.cannonSlots; i++)
         {
