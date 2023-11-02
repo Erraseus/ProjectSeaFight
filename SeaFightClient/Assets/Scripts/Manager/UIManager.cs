@@ -1,0 +1,147 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public class UIManager : MonoBehaviour
+{
+    #region Singleton
+    private static UIManager _singleton;
+    public static UIManager Singleton
+    {
+        get => _singleton;
+        private set
+        {
+            if (_singleton == null)
+                _singleton = value;
+            else if (_singleton != value)
+            {
+                Debug.Log($"{nameof(UIManager)} instance already exists, destroying duplicate!");
+                Destroy(value);
+            }
+        }
+    }
+    private void Awake()
+    {
+        Singleton = this;
+    }
+    #endregion
+
+    [Header("Game Start Menu")]
+    [SerializeField] private GameObject _startMenu;
+    [SerializeField] private GameObject _loginMenu;
+    [SerializeField] private GameObject _registerMenu;
+
+    [Header("Ingame Menu")]
+    [SerializeField] private GameObject _mainMenu;
+    [SerializeField] private GameObject _inventoryMenu;
+    [SerializeField] private GameObject _equipmentMenu;
+
+    private List<GameObject> _menuList = new List<GameObject>();
+
+    private bool _allMenusHidden;
+    public bool hasLoggedIn;
+
+    private void Start()
+    {
+        hasLoggedIn = false;
+        InitializeMenus();
+        HideAllMenuScreens();
+        StartGame();
+    }
+
+    private void Update()
+    {
+        if (!hasLoggedIn) return;
+        if (hasLoggedIn && (_loginMenu.activeInHierarchy || _registerMenu.activeInHierarchy))
+        {
+            _loginMenu.SetActive(false);
+            _registerMenu.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !_allMenusHidden)
+            HideAllMenuScreens();
+
+        if (Input.GetKeyDown(KeyCode.Escape) && _allMenusHidden)
+            ToggleMainMenu();
+
+        ToggleMenuByKey(_inventoryMenu, KeyCode.I);
+        ToggleMenuByKey(_equipmentMenu, KeyCode.K);
+    }
+
+    private void InitializeMenus()
+    {
+        //Game Start Menu
+        _menuList.Add(_startMenu);
+        _menuList.Add(_loginMenu);
+        _menuList.Add(_registerMenu);
+        //In Game Menu
+        _menuList.Add(_mainMenu);
+        _menuList.Add(_inventoryMenu);
+        _menuList.Add(_equipmentMenu);
+    }
+
+    public void StartGame()
+    {
+        if (_startMenu != null)
+            _startMenu.SetActive(true);
+    }
+    public void RestartGame()
+    {
+        hasLoggedIn = false;
+        HideAllMenuScreens();
+        StartGame();
+    }
+
+    public void HideAllMenuScreens()
+    {
+        foreach (var menu in _menuList)
+            menu.SetActive(false);
+
+        _allMenusHidden = true;
+    }
+
+    private void ToggleMainMenu()
+    {
+        if (!_mainMenu.activeInHierarchy)
+            _mainMenu.SetActive(true);
+        else if (_mainMenu.activeInHierarchy)
+            _mainMenu.SetActive(false);
+    }
+
+    private void ToggleMenuByKey(GameObject menu, KeyCode key)
+    {
+        if (Input.GetKeyDown(key) && !menu.activeInHierarchy && !_mainMenu.activeInHierarchy)
+        {
+            menu.SetActive(true);
+            _allMenusHidden = false;
+        }
+        else if (Input.GetKeyDown(key) && menu.activeInHierarchy && !_mainMenu.activeInHierarchy)
+        {
+            menu.SetActive(false);
+            _allMenusHidden = false;
+        }
+    }
+
+
+
+
+
+
+
+    /* MARKET CODE FUKTIONIERT ZURZEIT NICHT
+    
+    public static GameObject Market;
+    
+    public void ExitMarket()
+    {
+        Market.gameObject.SetActive(false);
+    }
+
+    [MessageHandler((ushort)ServerToClientId.handel)]
+    private static void PlayerHandel(Message message)
+    {
+        Debug.Log(message.GetString());
+        Market.gameObject.SetActive(true);
+    }
+
+    */
+}

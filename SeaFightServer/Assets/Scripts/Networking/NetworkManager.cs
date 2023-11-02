@@ -1,10 +1,9 @@
-using Riptide;
-using Riptide.Utils;
 using System;
 using System.Collections;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.Networking;
+using Riptide;
+using Riptide.Utils;
 
 public enum ServerToClientId : ushort
 {
@@ -14,7 +13,6 @@ public enum ServerToClientId : ushort
     startInformations,
     NPCSpawn,
 }
-
 public enum ClientToServerId : ushort
 {
     MovePosition,
@@ -23,6 +21,7 @@ public enum ClientToServerId : ushort
 
 public class NetworkManager : MonoBehaviour
 {
+    #region Singleton
     private static NetworkManager _singleton;
     public static NetworkManager Singleton
     {
@@ -38,6 +37,11 @@ public class NetworkManager : MonoBehaviour
             }
         }
     }
+    private void Awake()
+    {
+        Singleton = this;
+    }
+    #endregion
 
     public Server Server { get; private set; }
 
@@ -46,14 +50,10 @@ public class NetworkManager : MonoBehaviour
 
     public static String SQL_Output;
     public string response;
-    private void Awake()
-    {
-        Singleton = this;
-    }
-
-
+    
     private void Start()
     {
+        Application.targetFrameRate = 60;
 
 #if UNITY_EDITOR
         RiptideLogger.Initialize(Debug.Log, Debug.Log, Debug.LogWarning, Debug.LogError, false);
@@ -86,7 +86,6 @@ public class NetworkManager : MonoBehaviour
             Destroy(player.gameObject);
     }
 
-
     public IEnumerator SendSQL(string sqlQuery, Action<string> callback)
     {
         WWWForm form = new WWWForm();
@@ -105,5 +104,4 @@ public class NetworkManager : MonoBehaviour
             callback(response);
         }
     }
-
 }

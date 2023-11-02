@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerEquipment : MonoBehaviour
 {
     [Header("DataManager")]
-    [SerializeField] ClientDatabase shipComponent;
+    [SerializeField] ItemDataManager shipComponent;
     [Header("DEBUG")]
     [SerializeField][Range(0, 2)] int DEBUGCannonlevel;
     [SerializeField][Range(0, 2)] int DEBUGSaillevel;
@@ -16,6 +16,7 @@ public class PlayerEquipment : MonoBehaviour
     [SerializeField] List<CannonSO> cannons = new List<CannonSO>();
     [SerializeField] List<SailSO> sails = new List<SailSO>();
     [SerializeField] List<CrewSO> crewMembers = new List<CrewSO>();
+    public int inventorySlots;
     [Space]
     [Header("Ship Data")]
     [SerializeField] int maxHp = 0;
@@ -35,7 +36,7 @@ public class PlayerEquipment : MonoBehaviour
 
     void Start()
     {
-        shipComponent = GameObject.Find("DataManager").GetComponent<ClientDatabase>();
+        shipComponent = GameObject.Find("DataManager").GetComponent<ItemDataManager>();
 
         InitialiseShip();
         CalculateCannon();
@@ -64,6 +65,7 @@ public class PlayerEquipment : MonoBehaviour
         maxHp = ship.health;
         currentHP = ship.health;
         sight = ship.sight;
+        inventorySlots = ship.inventorySlots;
 
         GameObject shipModel = Instantiate(ship.Model, new Vector3(transform.position.x, 0, transform.position.z), transform.rotation);
         shipModel.tag = "Player";

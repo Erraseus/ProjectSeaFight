@@ -4,7 +4,7 @@ using UnityEngine;
 public class CliendShiphandler : MonoBehaviour
 {
     [SerializeField] string databaseLocation;
-    [SerializeField] ClientDatabase database;
+    [SerializeField] ItemDataManager database;
     [SerializeField] GameObject shipModel;
     [SerializeField] type Type;
     [Header("Current Ship Data")]
@@ -35,10 +35,10 @@ public class CliendShiphandler : MonoBehaviour
         
     }
 
-    ClientDatabase GetLocalDatabase(string location)
+    ItemDataManager GetLocalDatabase(string location)
     {
-        ClientDatabase database;
-        database = GameObject.Find(location).GetComponent<ClientDatabase>();
+        ItemDataManager database;
+        database = GameObject.Find(location).GetComponent<ItemDataManager>();
         return database;
     }
 

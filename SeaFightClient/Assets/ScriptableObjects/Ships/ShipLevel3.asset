@@ -21,4 +21,4 @@ MonoBehaviour:
   cannonSlots: 50
   sailSlots: 4
   crewSlots: 10
-  inventorySlots: 40
+  inventorySlots: 20

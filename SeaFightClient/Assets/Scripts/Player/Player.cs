@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         Player player;
         if (id == NetworkManager.Singleton.Client.Id)
         {
-            player = Instantiate(GameLogic.Singleton.LocalPlayerPrefab, position, Quaternion.identity).GetComponent<Player>();
+            player = Instantiate(GameManager.Singleton.ClientPlayerPrefab, position, Quaternion.identity).GetComponent<Player>();
             player.IsLocal = true;
 
             player.GetComponent<PlayerEquipment>().shipLevel = ship;
@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            player = Instantiate(GameLogic.Singleton.PlayerPrefab, position, Quaternion.identity).GetComponent<Player>();
+            player = Instantiate(GameManager.Singleton.ServerPlayerPrefab, position, Quaternion.identity).GetComponent<Player>();
             player.IsLocal = false;
         }
 
