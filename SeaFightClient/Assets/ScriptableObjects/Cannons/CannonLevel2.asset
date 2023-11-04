@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea1ab9b5035c9843ac3dea54e0ca644, type: 3}
   m_Name: CannonLevel2
   m_EditorClassIdentifier: 
-  id: 1
-  name: Kanone
-  icon: {fileID: 0}
-  damage: 15
-  range: 10
-  reloadTime: 3
-  hitChance: 90
-  critChance: 15
+  _id: 1
+  _name: Cannon 2
+  _icon: {fileID: 0}
+  _description: 
+  _damage: 10
+  _range: 18
+  _reloadTime: 1.5
+  _hitchance: 95
+  _critchance: 20

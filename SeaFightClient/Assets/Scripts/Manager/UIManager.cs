@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -25,6 +26,15 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    // Declare Menu | [SerializeField] private GameObject _menuName
+    // Add _menuName to the _menuList in the InitializeMenu() function
+    // Call your menu in Update | ToggleMenuByKey(KeyCode.x, _menuName)
+    
+    // ToDo
+    // Implementing function ToggleMenuByEnter()
+    // Implementing function ToggleMenuByExit()
+
+
     [Header("Game Start Menu")]
     [SerializeField] private GameObject _startMenu;
     [SerializeField] private GameObject _loginMenu;
@@ -35,17 +45,24 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _inventoryMenu;
     [SerializeField] private GameObject _equipmentMenu;
 
+    [Header("HUD")]
+    [SerializeField] private GameObject _drivemodeHUD;
+    [SerializeField] private GameObject _mapmodeHUD;
+
     private List<GameObject> _menuList = new List<GameObject>();
 
     private bool _allMenusHidden;
-    public bool hasLoggedIn;
+    public bool HasLoggedIn
+    {
+        get { return hasLoggedIn; }
+        set { hasLoggedIn = value; }
+    }
+    private bool hasLoggedIn;
 
     private void Start()
     {
-        hasLoggedIn = false;
         InitializeMenus();
-        HideAllMenuScreens();
-        StartGame();
+        StartGameMenu();
     }
 
     private void Update()
@@ -77,21 +94,26 @@ public class UIManager : MonoBehaviour
         _menuList.Add(_mainMenu);
         _menuList.Add(_inventoryMenu);
         _menuList.Add(_equipmentMenu);
+        //HUD
+        _menuList.Add(_mapmodeHUD);
+        _menuList.Add(_drivemodeHUD);
     }
 
-    public void StartGame()
-    {
-        if (_startMenu != null)
-            _startMenu.SetActive(true);
-    }
-    public void RestartGame()
+    private void StartGameMenu()
     {
         hasLoggedIn = false;
         HideAllMenuScreens();
-        StartGame();
+
+        if (_startMenu != null)
+            _startMenu.SetActive(true);
+    }
+    public void RestartGameMenu()
+    {
+        //TODO: Save current Position and Player data into database before Reload
+        SceneManager.LoadScene(0);
     }
 
-    public void HideAllMenuScreens()
+    private void HideAllMenuScreens()
     {
         foreach (var menu in _menuList)
             menu.SetActive(false);
@@ -124,6 +146,16 @@ public class UIManager : MonoBehaviour
 
 
 
+    // TODO: Need better way for instantiating menu slots
+    public void OpenInventoryMenu()
+    {
+        _inventoryMenu.SetActive(true);
+    }
+    public void CloseInventoryMenu()
+    {
+        _inventoryMenu.SetActive(false);
+    }
+    // TODO: End
 
 
 

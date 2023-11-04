@@ -11,7 +11,7 @@ public class StartMenu : MonoBehaviour
         _startButton.interactable = false;
         NetworkManager.Singleton.Connect();
     }
-    public void ConnectRetry()
+    public void RetryConnect()
     {
         _startButton.interactable = true;
     }

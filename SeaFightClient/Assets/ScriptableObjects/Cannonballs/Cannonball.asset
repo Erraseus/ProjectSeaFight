@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102444574c58d534e8bcc1d28c4c5474, type: 3}
   m_Name: Cannonball
   m_EditorClassIdentifier: 
-  id: 0
-  name: Kanonenkugel
-  icon: {fileID: 0}
-  damage: 5
-  effect: 0
-  effectDamage: 0
-  effectDuration: 0
+  _id: 0
+  _name: 
+  _icon: {fileID: 0}
+  _description: 
+  _damage: 0
+  _effect: 0
+  _effectDamage: 0
+  _effectDuration: 0

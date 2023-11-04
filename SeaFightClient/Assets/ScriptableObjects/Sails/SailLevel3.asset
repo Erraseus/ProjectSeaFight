@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a81024d69d050944ad219076f044e8b, type: 3}
   m_Name: SailLevel3
   m_EditorClassIdentifier: 
-  id: 2
-  name: "Gro\xDFes Segel"
-  icon: {fileID: 0}
-  speed: 14
+  _id: 2
+  _name: Sail 3
+  _icon: {fileID: 0}
+  _description: 
+  _speed: 14

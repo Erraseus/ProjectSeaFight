@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dea4d1aca7c38041b0072424cbbf9af, type: 3}
   m_Name: Outlook
   m_EditorClassIdentifier: 
-  id: 0
-  name: Ausguck
-  icon: {fileID: 0}
-  type: 0
-  value: 5
+  _id: 2
+  _name: Outlook
+  _icon: {fileID: 0}
+  _description: 
+  _type: 0
+  _value: 20

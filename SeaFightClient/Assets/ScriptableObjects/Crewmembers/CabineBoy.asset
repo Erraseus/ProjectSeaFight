@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dea4d1aca7c38041b0072424cbbf9af, type: 3}
   m_Name: CabineBoy
   m_EditorClassIdentifier: 
-  id: 1
-  name: Schiffsjunge
-  icon: {fileID: 0}
-  type: 2
-  value: 0.5
+  _id: 0
+  _name: CabineBoy
+  _icon: {fileID: 0}
+  _description: 
+  _type: 2
+  _value: 0.2

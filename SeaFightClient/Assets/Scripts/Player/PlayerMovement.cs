@@ -2,6 +2,7 @@ using Riptide;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,6 +12,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0)) // Wenn der linke Mausklick erfolgt
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
             Debug.Log("Klick");
             Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

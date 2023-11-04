@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 970a119cb6556f2438bfae6165aab53a, type: 3}
-  m_Name: Unrefined Iron
+  m_Name: Wood
   m_EditorClassIdentifier: 
-  id: 1
-  name: Unrefined Iron
-  icon: {fileID: 0}
-  rarity: 0
-  price: 100
-  description: A piece of old, unrefined iron. almost useless.
+  _id: 0
+  _name: Wood
+  _icon: {fileID: 21300000, guid: a210cedff9b8073458611ac69ccca2ca, type: 3}
+  _description: This is a Piece of Wood. Can be used to craft a Ship.
+  _price: 50
+  _rarity: 0

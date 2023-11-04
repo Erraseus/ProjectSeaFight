@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea1ab9b5035c9843ac3dea54e0ca644, type: 3}
   m_Name: CannonLevel1
   m_EditorClassIdentifier: 
-  id: 0
-  name: Schwache Kanone
-  icon: {fileID: 0}
-  damage: 10
-  range: 5
-  reloadTime: 4.5
-  hitChance: 85
-  critChance: 0
+  _id: 0
+  _name: Cannon 1
+  _icon: {fileID: 0}
+  _description: 
+  _damage: 5
+  _range: 15
+  _reloadTime: 2
+  _hitchance: 90
+  _critchance: 15

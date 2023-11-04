@@ -49,23 +49,23 @@ public class PlayerEquipment : MonoBehaviour
         //TODO: Daten von der Datenbank ziehen//
         ship = shipComponent.ships[shipLevel];
 
-        for (int i = 0; i < ship.cannonSlots; i++)
+        for (int i = 0; i < ship.CannonSlots; i++)
         {
             cannons.Add(shipComponent.cannons[DEBUGCannonlevel]);
         }
-        for (int i = 0; i < ship.sailSlots; i++)
+        for (int i = 0; i < ship.SailSlots; i++)
         {
             sails.Add(shipComponent.sails[DEBUGSaillevel]);
         }
-        for (int i = 0; i < ship.crewSlots; i++)
+        for (int i = 0; i < ship.CrewSlots; i++)
         {
             crewMembers.Add(shipComponent.crewMembers[0]);
         }
 
-        maxHp = ship.health;
-        currentHP = ship.health;
-        sight = ship.sight;
-        inventorySlots = ship.inventorySlots;
+        maxHp = ship.Health;
+        currentHP = ship.Health;
+        sight = ship.Sight;
+        inventorySlots = ship.InventorySlots;
 
         GameObject shipModel = Instantiate(ship.Model, new Vector3(transform.position.x, 0, transform.position.z), transform.rotation);
         shipModel.tag = "Player";
@@ -82,11 +82,11 @@ public class PlayerEquipment : MonoBehaviour
 
         foreach (var cannon in cannons)
         {
-            damage += cannon.damage;
-            attackRange += cannon.range;
-            reloadTime += cannon.reloadTime;
-            hitChance += cannon.hitChance;
-            critChance += cannon.critChance;
+            damage += cannon.Damage;
+            attackRange += cannon.Range;
+            reloadTime += cannon.ReloadTime;
+            hitChance += cannon.Hitchance;
+            critChance += cannon.Critchance;
         }
         if (cannons.Count > 0)
         {
@@ -102,7 +102,7 @@ public class PlayerEquipment : MonoBehaviour
 
         foreach (var sail in sails)
         {
-            speed += sail.speed;
+            speed += sail.Speed;
         }
     }
     void CalculateCrew()

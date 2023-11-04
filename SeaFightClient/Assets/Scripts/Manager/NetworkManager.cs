@@ -78,11 +78,11 @@ public class NetworkManager : MonoBehaviour
 
     private void FailedToConnect(object sender, EventArgs e)
     {
-        _startMenu.ConnectRetry();
+        _startMenu.RetryConnect();
     }
 
     private void DidDisconnect(object sender, EventArgs e)
     {
-        UIManager.Singleton.RestartGame();
+        UIManager.Singleton.RestartGameMenu();
     }
 }

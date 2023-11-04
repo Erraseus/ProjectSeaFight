@@ -38,7 +38,6 @@ public class LoginMenu : MonoBehaviour
         if (args[0].Trim() == "1")
         {
             Debug.Log("Login successful!");
-            UIManager.Singleton.hasLoggedIn = true;
         }
         else
         {

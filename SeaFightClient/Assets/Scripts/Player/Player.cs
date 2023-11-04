@@ -15,6 +15,16 @@ public class Player : MonoBehaviour
     public bool IsLocal { get; private set; }
     private string username;
 
+    private void OnEnable()
+    {
+        UIManager.Singleton.HasLoggedIn = true;
+    }
+    private void OnDisable()
+    {
+        UIManager.Singleton.HasLoggedIn = false;
+    }
+
+
     private void OnDestroy()
     {
         list.Remove(Id);

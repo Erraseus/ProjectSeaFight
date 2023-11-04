@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dea4d1aca7c38041b0072424cbbf9af, type: 3}
   m_Name: Loter
   m_EditorClassIdentifier: 
-  id: 2
-  name: Loter
-  icon: {fileID: 0}
-  type: 1
-  value: 2
+  _id: 1
+  _name: Loter
+  _icon: {fileID: 0}
+  _description: 
+  _type: 1
+  _value: 10

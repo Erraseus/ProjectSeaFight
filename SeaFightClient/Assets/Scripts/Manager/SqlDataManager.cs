@@ -30,7 +30,6 @@ public class SqlDataManager : MonoBehaviour
     [Header("Player Data")]
     public int id;
     public new string name;
-    [Space]
     [Header("Ship Data")]
     public int shipLevel;
     public List<int> cannonSlots = new List<int>();

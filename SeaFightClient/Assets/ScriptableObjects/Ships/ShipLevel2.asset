@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61671da0d0fc12141901908711fa7cb3, type: 3}
   m_Name: ShipLevel2
   m_EditorClassIdentifier: 
-  id: 1
-  name: Schiff
-  icon: {fileID: 0}
-  Model: {fileID: 3662619346358676304, guid: d8d12f8c20799a948959d37b7db35bf7, type: 3}
-  sight: 12
-  health: 120
-  cannonSlots: 10
-  sailSlots: 2
-  crewSlots: 5
-  inventorySlots: 15
+  _id: 1
+  _name: Ship 2
+  _icon: {fileID: 0}
+  _description: 
+  _model: {fileID: 4890047860548192187, guid: 1b816f8b7f07f7f4e8a3d87a8cb6470c, type: 3}
+  _sight: 20
+  _health: 200
+  _cannonSlots: 4
+  _sailSlots: 2
+  _crewSlots: 0
+  _inventorySlots: 10

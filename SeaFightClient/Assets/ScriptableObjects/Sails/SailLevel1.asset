@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a81024d69d050944ad219076f044e8b, type: 3}
   m_Name: SailLevel1
   m_EditorClassIdentifier: 
-  id: 0
-  name: Kleines Segel
-  icon: {fileID: 0}
-  speed: 10
+  _id: 0
+  _name: Sail 1
+  _icon: {fileID: 0}
+  _description: 
+  _speed: 10

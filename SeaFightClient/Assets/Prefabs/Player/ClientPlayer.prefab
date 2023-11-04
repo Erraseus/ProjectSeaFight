@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 5512151876189247417}
   - component: {fileID: 9186438344812092333}
   - component: {fileID: -5716213853387404772}
+  - component: {fileID: -2992706644975858415}
   m_Layer: 0
   m_Name: ClientPlayer
   m_TagString: Player
@@ -224,6 +225,21 @@ MonoBehaviour:
   hitChance: 0
   critChance: 0
   speed: 0
+--- !u!114 &-2992706644975858415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5152840854256205144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50248c03681c41d47a9bdd60f8d934df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemPrefab: {fileID: 8268840322011836493, guid: 4fec0baad70a7d34fbc81d12615d1cc0,
+    type: 3}
+  _itemParent: {fileID: 0}
 --- !u!1001 &4941451290575469197
 PrefabInstance:
   m_ObjectHideFlags: 0
