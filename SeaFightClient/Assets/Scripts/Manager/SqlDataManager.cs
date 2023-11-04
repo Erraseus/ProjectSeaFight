@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SqlDataManager : MonoBehaviour
@@ -26,14 +23,11 @@ public class SqlDataManager : MonoBehaviour
         Singleton = this;
     }
     #endregion
+    // Data from SqlDatabase
+    public int SqlGoldAmmount { get; private set; }
+    public int[] SqlInventorySlot { get; private set; }
+    public int[] SqlItemId { get; private set; }
+    public int[] SqlItemQuantity { get; private set; }
 
-    [Header("Player Data")]
-    public int id;
-    public new string name;
-    [Header("Ship Data")]
-    public int shipLevel;
-    public List<int> cannonSlots = new List<int>();
-    public List<int> sailSlots = new List<int>();
-    public List<int> crewSlots = new List<int>();
-    public List<int> inventorySlots = new List<int>();
+
 }

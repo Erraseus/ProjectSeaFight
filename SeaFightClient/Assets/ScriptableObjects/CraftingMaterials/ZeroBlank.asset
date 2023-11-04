@@ -9,17 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61671da0d0fc12141901908711fa7cb3, type: 3}
-  m_Name: ShipLevel2
+  m_Script: {fileID: 11500000, guid: 970a119cb6556f2438bfae6165aab53a, type: 3}
+  m_Name: ZeroBlank
   m_EditorClassIdentifier: 
-  _id: 1
-  _name: Ship 2
+  _id: 0
+  _name: Zero Blank
   _icon: {fileID: 0}
   _description: 
-  _model: {fileID: 4890047860548192187, guid: 1b816f8b7f07f7f4e8a3d87a8cb6470c, type: 3}
-  _sight: 20
-  _health: 200
-  _cannonSlots: 4
-  _sailSlots: 2
-  _crewSlots: 0
-  _inventorySlots: 15
+  _price: 0
+  _stack: 0
+  _rarity: 0

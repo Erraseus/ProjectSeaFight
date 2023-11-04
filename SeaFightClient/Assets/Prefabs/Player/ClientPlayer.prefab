@@ -237,9 +237,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50248c03681c41d47a9bdd60f8d934df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemPrefab: {fileID: 8268840322011836493, guid: 4fec0baad70a7d34fbc81d12615d1cc0,
+  _itemSlotsName: Itemslots
+  _itemSlotPrefab: {fileID: 8268840322011836493, guid: 4fec0baad70a7d34fbc81d12615d1cc0,
     type: 3}
-  _itemParent: {fileID: 0}
+  _itemSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _craftingMaterialSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _quantity: 0000000000000000000000000000000000000000
 --- !u!1001 &4941451290575469197
 PrefabInstance:
   m_ObjectHideFlags: 0

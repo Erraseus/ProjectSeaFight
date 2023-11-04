@@ -143,21 +143,17 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
-
-
-    // TODO: Need better way for instantiating menu slots
-    public void OpenInventoryMenu()
+    public void ToggleInventoryMenu()
     {
-        _inventoryMenu.SetActive(true);
+        if (!_inventoryMenu.activeInHierarchy)
+        {
+            _inventoryMenu.SetActive(true);
+        }
+        else
+        {
+            _inventoryMenu.SetActive(false);
+        }
     }
-    public void CloseInventoryMenu()
-    {
-        _inventoryMenu.SetActive(false);
-    }
-    // TODO: End
-
-
 
     /* MARKET CODE FUKTIONIERT ZURZEIT NICHT
     

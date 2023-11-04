@@ -1,72 +1,71 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    [SerializeField] private GameObject _itemPrefab;
-
-    private Transform _itemParent;
-    private PlayerEquipment _playerEquipment;
-    private CraftingMaterialSO _item;
-    [SerializeField] private List<ItemSlot> _itemSlots;
-    
-
+    [SerializeField] private string _itemSlotsName;
+    [SerializeField] private GameObject _itemSlotPrefab;
+    [SerializeField] private ItemSlot[] _itemSlots;
+    [SerializeField] private CraftingMaterialSO[] _craftingMaterialSlots;
+    [SerializeField] private int[] _quantity;
     public int Gold { get; private set; }
+    private int _maxGold;
 
 
     private void Start()
     {
-        UIManager.Singleton.OpenInventoryMenu();
         InitializeInventorySlots();
-        UIManager.Singleton.CloseInventoryMenu();
-        
-        
     }
     
     private void InitializeInventorySlots()
     {
-        _itemParent = GameObject.Find("Slots").GetComponent<Transform>();
-        _playerEquipment = GetComponent<PlayerEquipment>();
-        _itemSlots = new List<ItemSlot>();
-
-        for (int i = 0; i < _playerEquipment.inventorySlots; i++)
+        UIManager.Singleton.ToggleInventoryMenu();
+        Transform slots = GameObject.Find(_itemSlotsName).GetComponent<Transform>();
+        UIManager.Singleton.ToggleInventoryMenu();
+        for (int i = 0; i < _itemSlots.Length; i++)
         {
-            
-            GameObject icon = Instantiate(_itemPrefab, Vector3.zero, Quaternion.identity);
-            icon.GetComponent<ItemSlot>().PlayerInventory = GetComponent<PlayerInventory>();
-            _itemSlots.Add(icon.GetComponent<ItemSlot>());
-            icon.transform.SetParent(_itemParent);
+            GameObject itemSlot = Instantiate(_itemSlotPrefab, Vector3.zero, Quaternion.identity);
+            _itemSlots[i] = itemSlot.GetComponent<ItemSlot>();
+            itemSlot.transform.SetParent(slots);
         }
     }
 
-    public void AddGold(int ammount)
+    public int AddGold(int ammount)
     {
+        int goldOverMax = 0;
+        if (Gold == _maxGold) return ammount;
         Gold += ammount;
-        Debug.Log($"Player got {ammount} gold. Curent gold = {Gold}");
-    }
-    public void AddItem(CraftingMaterialSO item, int quantity)
-    {
-        for (int i = 0; i < _itemSlots.Count; i++)
+
+        if (Gold > _maxGold)
         {
-            if (_itemSlots[i] == null)
-            {
-                _itemSlots[i].AddItem(item, quantity);
-                return;
-            }
-            if (_itemSlots[i].IsFull == false)
-            {
-                _itemSlots[i].AddItem(item, quantity);
-                return;
-            }
+            Debug.LogWarning($"Max Gold reached!");
+            goldOverMax = Gold - _maxGold;
+            Debug.LogWarning($"Returning {goldOverMax} Gold into Collectable!");
+            Gold = _maxGold;
         }
+        else
+        {
+            Debug.Log($"{ammount} Gold earned!");
+            goldOverMax = 0;
+        }
+        Debug.Log($"Current Gold = {Gold}");
+
+        return goldOverMax;
     }
 
-
-    public void DeselectAllSlots()
+    public void AddCraftingMaterial(CraftingMaterialSO craftingMaterial, int quantity)
     {
-        for (int i = 0; i < _itemSlots.Count; i++)
+        for (int i = 0; i < _craftingMaterialSlots.Length; i++)
         {
-            _itemSlots[i].DeselectSlot();
+            if (_craftingMaterialSlots[i] == null || _craftingMaterialSlots[i].Id == craftingMaterial.Id)
+            {
+                _craftingMaterialSlots[i] = craftingMaterial;
+                _quantity[i] += quantity;
+                _itemSlots[i].UpdateItemSlot(craftingMaterial, quantity);
+
+                return;
+            }
         }
     }
 }

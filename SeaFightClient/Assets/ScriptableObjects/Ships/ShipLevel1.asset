@@ -22,4 +22,4 @@ MonoBehaviour:
   _cannonSlots: 2
   _sailSlots: 1
   _crewSlots: 0
-  _inventorySlots: 5
+  _inventorySlots: 10

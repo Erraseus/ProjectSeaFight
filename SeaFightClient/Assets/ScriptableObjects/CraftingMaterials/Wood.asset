@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970a119cb6556f2438bfae6165aab53a, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
-  _id: 0
+  _id: 1
   _name: Wood
   _icon: {fileID: 21300000, guid: a210cedff9b8073458611ac69ccca2ca, type: 3}
   _description: This is a Piece of Wood. Can be used to craft a Ship.
   _price: 50
+  _stack: 20
   _rarity: 0
