@@ -54,7 +54,6 @@ public class Player : MonoBehaviour
 
     private void playerMove(Vector3 position)
     {
-        Debug.Log(name+"X:" + position.x + "   Y:" + position.y + "    Z:" + position.z);
         agent.destination = position;
         GameObject[] marker;
         marker = GameObject.FindGameObjectsWithTag("Marker");

@@ -67,19 +67,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab0b52df4865694094837519d7ed276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _possibleItems:
+  _possibleCraftingMaterials:
   - {fileID: 11400000, guid: 2501269e21d774a4098f2101f8288d03, type: 2}
   - {fileID: 11400000, guid: 6b306234b477f584cb867b4bfc3a194d, type: 2}
   - {fileID: 11400000, guid: 0df2ad334649018409d0b1378cbbeeac, type: 2}
   - {fileID: 11400000, guid: 33d77773a9c3b644b819352a4c4b79d9, type: 2}
-  _minItems: 1
-  _maxItems: 2
-  _minQuantity: 5
-  _maxQuantity: 15
-  _gold: 400
-  _itemsInCollectable: []
-  calculatedQuantity: 
-  _calculatedGold: 0
+  _minItems: 2
+  _maxItems: 3
+  _minQuantity: 1
+  _maxQuantity: 5
+  _averageGold: 50
+  _craftingMaterials: []
+  _quantity: 
+  _gold: 0
 --- !u!1 &3553037676032597602
 GameObject:
   m_ObjectHideFlags: 0

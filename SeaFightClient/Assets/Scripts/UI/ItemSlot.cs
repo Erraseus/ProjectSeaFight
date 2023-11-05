@@ -1,28 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Runtime.CompilerServices;
 
 public class ItemSlot : MonoBehaviour
 {
-    public bool IsFull { get; private set; }
-    public CraftingMaterialSO Item { get { return _item; } set { _item = value; } }
-    public int Quantity { get { return _quantity; } set { _quantity = value; } }
-    
+    [Header("Item Icon")]
+    [SerializeField] private Image _background;
     [SerializeField] private Image _icon;
+    [SerializeField] private Sprite[] _itemBackground;
+    [Header("Item Quantity")]
     [SerializeField] private GameObject _quantityTextField;
     [SerializeField] private TMP_Text _quantityText;
+    [Space]
     [SerializeField] private GameObject _selectShader;
-
-    [Header("Slot Info")]
-    [SerializeField] private CraftingMaterialSO _item;
-    [SerializeField] private int _quantity;
-
+    
     public void UpdateItemSlot(CraftingMaterialSO item, int quantity)
     {
-        if (!_quantityTextField.activeInHierarchy) _quantityTextField.SetActive(true);
-        _quantity += quantity;
+        _background.sprite = _itemBackground[(int)item.Rarity];
         _icon.sprite = item.Icon;
-        _quantityText.text = _quantity.ToString();
-        
+
+        _quantityText.text = quantity.ToString();
+
+        if (quantity > 0) _quantityTextField.SetActive(true);
+        else _quantityTextField.SetActive(false);
     }
 }

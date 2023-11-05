@@ -240,19 +240,7 @@ MonoBehaviour:
   _itemSlotsName: Itemslots
   _itemSlotPrefab: {fileID: 8268840322011836493, guid: 4fec0baad70a7d34fbc81d12615d1cc0,
     type: 3}
-  _itemSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _craftingMaterialSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _quantity: 0000000000000000000000000000000000000000
+  _itemSlotsQuantity: 9
 --- !u!1001 &4941451290575469197
 PrefabInstance:
   m_ObjectHideFlags: 0

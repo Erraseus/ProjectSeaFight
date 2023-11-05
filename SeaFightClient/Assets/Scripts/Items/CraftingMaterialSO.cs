@@ -10,6 +10,8 @@ public class CraftingMaterialSO : ScriptableObject, IItem
     [SerializeField][TextArea(minLines: 4, maxLines: 4)] private string _description;
     [Space]
     [Header("Specific Information")]
+    [SerializeField] bool isTradeable;
+    [SerializeField] bool isUnique;
     [SerializeField] private int _price;
     [SerializeField] private int _stack;
     [Space]
@@ -24,4 +26,4 @@ public class CraftingMaterialSO : ScriptableObject, IItem
     public RARITY Rarity { get { return _rarity; } }
 }
 
-public enum RARITY { common, rare, veryRare, legendary }
+public enum RARITY { common, uncommon, rare, veryRare, legendary, empty }

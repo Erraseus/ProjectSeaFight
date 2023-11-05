@@ -20,12 +20,14 @@ public class CollectableItem : MonoBehaviour
     private int calculatedItems;
     [SerializeField] private List<CraftingMaterialSO> _craftingMaterials;
     [SerializeField] private List<int> _quantity;
+    private List<int> _returnedQuantity;
     public int _gold;
 
     private void Start()
     {
         _craftingMaterials = new List<CraftingMaterialSO>();
         _quantity = new List<int>();
+        _returnedQuantity = new List<int>();
 
         _gold = 0;
         _craftingMaterials.Clear();
@@ -62,19 +64,36 @@ public class CollectableItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.tag == "Player")
         {
             PlayerInventory _playerInventory = other.gameObject.GetComponentInParent<PlayerInventory>();
+            bool isEmpty = false;
 
             int goldOverMax = _playerInventory.AddGold(_gold);
             if (goldOverMax > 0) _gold = goldOverMax;
            
+
             for (int i = 0; i < _craftingMaterials.Count; i++)
             {
-                _playerInventory.AddCraftingMaterial(_craftingMaterials[i], _quantity[i]);
+                _returnedQuantity.Add(0);
+                _returnedQuantity[i] = _playerInventory.AddCraftingMaterial(_craftingMaterials[i], _quantity[i]);
+                _quantity[i] = _returnedQuantity[i];
+            }
+            for (int i = 0; i < _quantity.Count; i++)
+            {
+                if (_quantity[i] > 0)
+                {
+                    isEmpty = false;
+                    return;
+                }
+                else
+                {
+                    isEmpty = true;
+                }
             }
 
-            Destroy(gameObject);
+            if (isEmpty) Destroy(gameObject);
             
             //for (int i = 0; i < _itemsInCollectable.Count; i++)
             //{
