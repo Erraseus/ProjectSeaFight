@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
@@ -9,10 +6,11 @@ public class PlayerInventory : MonoBehaviour
     [Header("Creating Inventory UI")]
     [SerializeField] private string _itemSlotsName;
     [SerializeField] private GameObject _itemSlotPrefab;
-    [SerializeField] [Range(1, 40)] private int _itemSlotsQuantity;
+    [SerializeField] [Range(1, 40)] private int _maxItemSlots;
 
     private List<ItemSlot> _itemSlots = new List<ItemSlot>();
-    private List<CraftingMaterialSO> _craftingMaterialSlots = new List<CraftingMaterialSO>();
+
+    private List<CraftingMaterialSO> _item = new List<CraftingMaterialSO>();
     private List<int> _quantity = new List<int>();
 
     public int Gold { get; private set; }
@@ -29,12 +27,12 @@ public class PlayerInventory : MonoBehaviour
         UIManager.Singleton.ToggleInventoryMenu();
         Transform slots = GameObject.Find(_itemSlotsName).GetComponent<Transform>();
         UIManager.Singleton.ToggleInventoryMenu();
-        for (int i = 0; i < _itemSlotsQuantity; i++)
+        for (int i = 0; i < _maxItemSlots; i++)
         {
             GameObject itemSlot = Instantiate(_itemSlotPrefab, Vector3.zero, Quaternion.identity);
             _itemSlots.Add(itemSlot.GetComponent<ItemSlot>());
             itemSlot.transform.SetParent(slots);
-            _craftingMaterialSlots.Add(null);
+            _item.Add(null);
             _quantity.Add(0);
         }
     }
@@ -51,41 +49,42 @@ public class PlayerInventory : MonoBehaviour
         return goldOverMax;
     }
 
-    public int AddCraftingMaterial(CraftingMaterialSO craftingMaterial, int quantity)
+    public int AddItem(CraftingMaterialSO item, int quantity)
     {
-        int quantityToReturn = quantity;
+        int remainingQuantity = quantity;
 
-        for (int i = 0; i < _itemSlotsQuantity; i++)
+        for (int i = 0; i < _itemSlots.Count; i++)
         {
-            if (_craftingMaterialSlots[i] != null && _craftingMaterialSlots[i].Stack >= _quantity[i] + quantity) continue;
+            if (_item[i] == null) _item[i] = item;
 
-            if (_craftingMaterialSlots[i] == null || _craftingMaterialSlots[i].Id == craftingMaterial.Id)
+            if (_item[i].Id == item.Id)
             {
-                _craftingMaterialSlots[i] = craftingMaterial;
-
-                if (_craftingMaterialSlots[i].Stack < _quantity[i] + quantity)
+                if (_item[i].Stack < _quantity[i] + remainingQuantity)
                 {
-                    int quantityToAdd = _craftingMaterialSlots[i].Stack - _quantity[i];
+                    int addedQuantity;
+                    addedQuantity = _item[i].Stack - _quantity[i];
+                    _quantity[i] = _quantity[i] + addedQuantity;
+                    remainingQuantity = remainingQuantity - addedQuantity;
 
-                    _quantity[i] = _quantity[i] + quantityToAdd;
-
-                    quantityToReturn = quantity - quantityToAdd;
-                    Debug.LogWarning($"Returned {quantityToReturn} pieces of {_craftingMaterialSlots[i].Name} to Barrel!");
-                    _itemSlots[i].UpdateItemSlot(_craftingMaterialSlots[i], _quantity[i]);
-
-                    return quantityToReturn;
+                    _itemSlots[i].UpdateItemSlot(_item[i], _quantity[i]);
                 }
                 else
                 {
-                    _quantity[i] = _quantity[i] + quantity;
-                    _itemSlots[i].UpdateItemSlot(_craftingMaterialSlots[i], _quantity[i]);
-                    quantityToReturn = 0;
+                    _quantity[i] = _quantity[i] + remainingQuantity;
+                    remainingQuantity = 0;
 
-                    return quantityToReturn;
+                    _itemSlots[i].UpdateItemSlot(_item[i], _quantity[i]);
+
+                    return remainingQuantity;
                 }
             }
+            if (remainingQuantity <= 0)
+            {
+                remainingQuantity = 0;
+                return remainingQuantity;
+            }
         }
-        Debug.Log("Inventory is full!");
-        return quantityToReturn;
+        Debug.LogWarning("Inventory full"!);
+        return remainingQuantity;
     }
 }

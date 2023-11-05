@@ -72,12 +72,13 @@ public class CollectableItem : MonoBehaviour
 
             int goldOverMax = _playerInventory.AddGold(_gold);
             if (goldOverMax > 0) _gold = goldOverMax;
+            else _gold = 0;
            
 
             for (int i = 0; i < _craftingMaterials.Count; i++)
             {
                 _returnedQuantity.Add(0);
-                _returnedQuantity[i] = _playerInventory.AddCraftingMaterial(_craftingMaterials[i], _quantity[i]);
+                _returnedQuantity[i] = _playerInventory.AddItem(_craftingMaterials[i], _quantity[i]);
                 _quantity[i] = _returnedQuantity[i];
             }
             for (int i = 0; i < _quantity.Count; i++)
@@ -89,7 +90,7 @@ public class CollectableItem : MonoBehaviour
                 }
                 else
                 {
-                    isEmpty = true;
+                    if(_gold == 0) isEmpty = true;
                 }
             }
 

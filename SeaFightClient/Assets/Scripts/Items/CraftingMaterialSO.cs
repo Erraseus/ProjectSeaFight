@@ -14,6 +14,7 @@ public class CraftingMaterialSO : ScriptableObject, IItem
     [SerializeField] bool isUnique;
     [SerializeField] private int _price;
     [SerializeField] private int _stack;
+    private bool _isFull;
     [Space]
     [SerializeField] private RARITY _rarity;
 
@@ -23,6 +24,7 @@ public class CraftingMaterialSO : ScriptableObject, IItem
     public string Description { get { return _description; } }
     public int Price { get { return _price; } }
     public int Stack { get { return _stack; } }
+    public bool IsFull { get; set; }
     public RARITY Rarity { get { return _rarity; } }
 }
 
