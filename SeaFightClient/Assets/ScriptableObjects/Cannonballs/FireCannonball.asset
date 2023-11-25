@@ -9,13 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 102444574c58d534e8bcc1d28c4c5474, type: 3}
+  m_Script: {fileID: 11500000, guid: b9914b8b50c1a8245b987f58c12df6e5, type: 3}
   m_Name: FireCannonball
   m_EditorClassIdentifier: 
-  id: 1
-  name: Kanonenkugel
-  icon: {fileID: 0}
-  damage: 5
-  effect: 1
-  effectDamage: 2
-  effectDuration: 5
+  _id: 1
+  _name: Fire Cannonball
+  _icon: {fileID: 0}
+  _rarity: 1
+  _description: Fire Cannonball, deals Burn
+  _unlockBy: 0
+  _descriptionToUnlock: 100 Gold
+  _craftableAtLevel: 2
+  _goldRequirement: 100
+  _requirements: []
+  _isTradeable: 0
+  _isUnique: 0
+  _price: 0
+  _stackQuantity: 500
+  _damage: 3
+  _effect: 1
+  _effectDamage: 2
+  _effectDuration: 10

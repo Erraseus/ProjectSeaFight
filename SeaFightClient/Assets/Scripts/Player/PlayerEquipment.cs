@@ -3,76 +3,52 @@ using UnityEngine;
 
 public class PlayerEquipment : MonoBehaviour
 {
-    [Header("DataManager")]
-    [SerializeField] ItemDataManager shipComponent;
-    [Header("DEBUG")]
-    [SerializeField][Range(0, 2)] int DEBUGCannonlevel;
-    [SerializeField][Range(0, 2)] int DEBUGSaillevel;
+    private ItemDataManager _equipmentId;
+    
+    [SerializeField] private int _playerLevel;
 
-    public int shipLevel;
-
-    [Space]
-    [SerializeField] ShipSO ship;
-    [SerializeField] List<CannonSO> cannons = new List<CannonSO>();
-    [SerializeField] List<SailSO> sails = new List<SailSO>();
-    [SerializeField] List<CrewSO> crewMembers = new List<CrewSO>();
-    public int inventorySlots;
-    [Space]
-    [Header("Ship Data")]
-    [SerializeField] int maxHp = 0;
-    [SerializeField] int currentHP = 0;
-    [Space]
-    [SerializeField] float sight = 0f;
-    [Space]
+    [SerializeField] private Ship _ship;
+    [SerializeField] private List<Cannon> _cannons = new List<Cannon>();
+    [SerializeField] private List<Sail> _sails = new List<Sail>();
+    
     [Header("Cannon Data")]
-    public int damage = 0;
-    public float attackRange = 0f;
-    public float reloadTime = 0f;
-    public float hitChance = 0f;
-    public float critChance = 0f;
-    [Space]
+    [SerializeField] private int damage = 0;
+    [SerializeField] private float attackRange = 0f;
+    [SerializeField] private float reloadTime = 0f;
+    [SerializeField] private float hitChance = 0f;
+    [SerializeField] private float critChance = 0f;
+
     [Header("Sails Data")]
-    [SerializeField] float speed = 0f;
+    [SerializeField] private float speed = 0f;
 
     void Start()
     {
-        shipComponent = GameObject.Find("DataManager").GetComponent<ItemDataManager>();
+        _equipmentId = ItemDataManager.Singleton.GetComponent<ItemDataManager>();
 
         InitialiseShip();
-        CalculateCannon();
+        CalculateCannons();
         CalculateSail();
-        CalculateCrew();
     }
 
     void InitialiseShip()
     {
-        //TODO: Daten von der Datenbank ziehen//
-        ship = shipComponent.ships[shipLevel];
+        _ship = _equipmentId.ships[0];
 
-        for (int i = 0; i < ship.CannonSlots; i++)
+        for (int i = 0; i < _ship.CannonSlots; i++)
         {
-            cannons.Add(shipComponent.cannons[DEBUGCannonlevel]);
+            _cannons.Add(_equipmentId.cannons[0]);
         }
-        for (int i = 0; i < ship.SailSlots; i++)
+        for (int i = 0; i < _ship.SailSlots; i++)
         {
-            sails.Add(shipComponent.sails[DEBUGSaillevel]);
+            _sails.Add(_equipmentId.sails[0]);
         }
-        for (int i = 0; i < ship.CrewSlots; i++)
-        {
-            crewMembers.Add(shipComponent.crewMembers[0]);
-        }
-
-        maxHp = ship.Health;
-        currentHP = ship.Health;
-        sight = ship.Sight;
-        inventorySlots = ship.InventorySlots;
-
-        GameObject shipModel = Instantiate(ship.Model, new Vector3(transform.position.x, 0, transform.position.z), transform.rotation);
+        
+        GameObject shipModel = Instantiate(_ship.Model, new Vector3(transform.position.x, 0, transform.position.z), transform.rotation);
         shipModel.tag = "Player";
-        shipModel.transform.SetParent(this.transform);
+        shipModel.transform.SetParent(transform);
     }
 
-    void CalculateCannon()
+    void CalculateCannons()
     {
         damage = 0;
         attackRange = 0;
@@ -80,7 +56,7 @@ public class PlayerEquipment : MonoBehaviour
         hitChance = 0;
         critChance = 0;
 
-        foreach (var cannon in cannons)
+        foreach (var cannon in _cannons)
         {
             damage += cannon.Damage;
             attackRange += cannon.Range;
@@ -88,36 +64,27 @@ public class PlayerEquipment : MonoBehaviour
             hitChance += cannon.Hitchance;
             critChance += cannon.Critchance;
         }
-        if (cannons.Count > 0)
+        if (_cannons.Count > 0)
         {
-            attackRange /= cannons.Count;
-            reloadTime /= cannons.Count;
-            hitChance /= cannons.Count;
-            critChance /= cannons.Count;
+            attackRange /= _cannons.Count;
+            reloadTime /= _cannons.Count;
+            hitChance /= _cannons.Count;
+            critChance /= _cannons.Count;
         }
     }
+
     void CalculateSail()
     {
         speed = 0;
 
-        foreach (var sail in sails)
+        foreach (var sail in _sails)
         {
             speed += sail.Speed;
         }
     }
-    void CalculateCrew()
-    {
-        //Benötigt Gameplay Tests für die Implementierung;
-        return;
-    }
-    public void ChangeShip(int id, GameObject oldModel)
-    {
-        Transform currentTransform = oldModel.transform;
-        Destroy(oldModel);
-        ship = shipComponent.ships[id];
-        GameObject shipModel = Instantiate(ship.Model, currentTransform.position, currentTransform.rotation);
-        shipModel.tag = "Player";
-        shipModel.transform.SetParent(this.transform);
-    }
 
+    public void SetPlayerLevel(int id)
+    {
+        _playerLevel = id;
+    }
 }

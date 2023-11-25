@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
     #endregion
 
     // Declare Menu | [SerializeField] private GameObject _menuName
-    // Add _menuName to the _menuList in the InitializeMenu() function
+    // Add _menuName to the _menuList in the InitializeMenus() function
     // Call your menu in Update | ToggleMenuByKey(KeyCode.x, _menuName)
     
     // ToDo
@@ -44,6 +44,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _inventoryMenu;
     [SerializeField] private GameObject _equipmentMenu;
+    [SerializeField] private GameObject _blueprintMenu;
 
     [Header("HUD")]
     [SerializeField] private GameObject _drivemodeHUD;
@@ -81,7 +82,8 @@ public class UIManager : MonoBehaviour
             ToggleMainMenu();
 
         ToggleMenuByKey(_inventoryMenu, KeyCode.I);
-        ToggleMenuByKey(_equipmentMenu, KeyCode.K);
+        ToggleMenuByKey(_equipmentMenu, KeyCode.C);
+        ToggleMenuByKey(_blueprintMenu, KeyCode.N);
     }
 
     private void InitializeMenus()
@@ -94,6 +96,7 @@ public class UIManager : MonoBehaviour
         _menuList.Add(_mainMenu);
         _menuList.Add(_inventoryMenu);
         _menuList.Add(_equipmentMenu);
+        _menuList.Add(_blueprintMenu);
         //HUD
         _menuList.Add(_mapmodeHUD);
         _menuList.Add(_drivemodeHUD);

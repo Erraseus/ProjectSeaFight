@@ -15,7 +15,7 @@ public class ItemSlot : MonoBehaviour
     [Space]
     [SerializeField] private GameObject _selectShader;
     
-    public void UpdateItemSlot(CraftingMaterialSO item, int quantity)
+    public void UpdateItemSlot(IInventoryItem item, int quantity)
     {
         _background.sprite = _itemBackground[(int)item.Rarity];
         _icon.sprite = item.Icon;

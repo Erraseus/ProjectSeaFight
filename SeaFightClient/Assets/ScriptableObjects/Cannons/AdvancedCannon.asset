@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d5e4f791c6efd41bc0ae32ea85b459, type: 3}
+  m_Name: AdvancedCannon
+  m_EditorClassIdentifier: 
+  _id: 1
+  _name: Advanced Cannon
+  _icon: {fileID: 0}
+  _rarity: 1
+  _description: Advanced Cannon, better than an Adventurers Cannon
+  _unlockBy: 0
+  _descriptionToUnlock: 100 Gold
+  _craftableAtLevel: 2
+  _goldRequirement: 100
+  _requirements: []
+  _damage: 15
+  _range: 8
+  _reloadTime: 1.7
+  _hitchance: 85
+  _critchance: 30

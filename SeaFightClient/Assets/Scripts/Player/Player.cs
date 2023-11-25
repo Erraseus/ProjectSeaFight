@@ -1,16 +1,12 @@
-using Riptide;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
+using Riptide;
 
 public class Player : MonoBehaviour
 {
     public static Dictionary<ushort, Player> list = new Dictionary<ushort, Player>();
-    public NavMeshAgent agent;
+    [SerializeField] private NavMeshAgent agent;
     public ushort Id { get; private set; }
     public bool IsLocal { get; private set; }
     private string username;
@@ -24,11 +20,11 @@ public class Player : MonoBehaviour
         UIManager.Singleton.HasLoggedIn = false;
     }
 
-
     private void OnDestroy()
     {
         list.Remove(Id);
     }
+
     public static void Spawn(ushort id, string username, Vector3 position, int ship)
     {
         Player player;
@@ -37,8 +33,7 @@ public class Player : MonoBehaviour
             player = Instantiate(GameManager.Singleton.ClientPlayerPrefab, position, Quaternion.identity).GetComponent<Player>();
             player.IsLocal = true;
 
-            player.GetComponent<PlayerEquipment>().shipLevel = ship;
-
+            //player.GetComponent<PlayerEquipment>().SetPlayerLevel(ship);
         }
         else
         {
@@ -82,6 +77,4 @@ public class Player : MonoBehaviour
         if (list.TryGetValue(message.GetUShort(), out Player player))
             player.playerMove(message.GetVector3());
     }
-
-
 }

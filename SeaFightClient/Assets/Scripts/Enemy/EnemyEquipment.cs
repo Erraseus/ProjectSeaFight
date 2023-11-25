@@ -7,10 +7,10 @@ public class EnemyEquipment : MonoBehaviour
     [SerializeField] ItemDataManager shipComponent;
     [SerializeField] int enemyLevel;
     [Space]
-    [SerializeField] ShipSO ship;
-    [SerializeField] List<CannonSO> cannons = new List<CannonSO>();
-    [SerializeField] List<SailSO> sails = new List<SailSO>();
-    [SerializeField] List<CrewSO> crewMembers = new List<CrewSO>();
+    [SerializeField] Ship ship;
+    [SerializeField] List<Cannon> cannons = new List<Cannon>();
+    [SerializeField] List<Sail> sails = new List<Sail>();
+    [SerializeField] List<Crewmate> crewMembers = new List<Crewmate>();
     [Space]
     [Header("Ship Data")]
     [SerializeField] int maxHp = 0;
@@ -50,7 +50,7 @@ public class EnemyEquipment : MonoBehaviour
         {
             sails.Add(shipComponent.sails[0]);
         }
-        for (int i = 0; i < ship.CrewSlots; i++)
+        for (int i = 0; i < ship.CrewmateSlots; i++)
         {
             crewMembers.Add(shipComponent.crewMembers[0]);
         }

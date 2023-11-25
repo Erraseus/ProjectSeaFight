@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58013aa72cfe19f46a62038e2a169727, type: 3}
+  m_Name: AdvancedShip
+  m_EditorClassIdentifier: 
+  _id: 1
+  _name: Advanced Ship
+  _icon: {fileID: 0}
+  _rarity: 1
+  _description: Advanced Ship, better than an Adventurers Ship
+  _unlockBy: 0
+  _descriptionToUnlock: 100 Gold
+  _craftableAtLevel: 2
+  _goldRequirement: 100
+  _requirements: []
+  _model: {fileID: 1857622890682479682, guid: 30b42344017c0824c957b7ceade74137, type: 3}
+  _sight: 15
+  _health: 500
+  _cannonSlots: 3
+  _sailSlots: 2
+  _crewmateSlots: 1

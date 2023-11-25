@@ -25,10 +25,10 @@ public class ItemDataManager : MonoBehaviour
     }
     #endregion
 
-    public List<ShipSO> ships = new List<ShipSO>();
-    public List<CannonSO> cannons = new List<CannonSO>();
-    public List<SailSO> sails = new List<SailSO>();
-    public List<CrewSO> crewMembers = new List<CrewSO>();
-    public List<CannonballSO> cannonballs = new List<CannonballSO>();
-    public List<CraftingMaterialSO> craftingMaterials = new List<CraftingMaterialSO>();
+    public List<Ship> ships = new List<Ship>();
+    public List<Cannon> cannons = new List<Cannon>();
+    public List<Sail> sails = new List<Sail>();
+    public List<Crewmate> crewMembers = new List<Crewmate>();
+    public List<Cannonball> cannonballs = new List<Cannonball>();
+    public List<CraftingMaterial> craftingMaterials = new List<CraftingMaterial>();
 }

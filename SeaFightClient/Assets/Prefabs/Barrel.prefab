@@ -68,16 +68,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _possibleCraftingMaterials:
-  - {fileID: 11400000, guid: 2501269e21d774a4098f2101f8288d03, type: 2}
-  - {fileID: 11400000, guid: 6b306234b477f584cb867b4bfc3a194d, type: 2}
-  - {fileID: 11400000, guid: 0df2ad334649018409d0b1378cbbeeac, type: 2}
-  - {fileID: 11400000, guid: 33d77773a9c3b644b819352a4c4b79d9, type: 2}
-  _minItems: 2
-  _maxItems: 3
-  _minQuantity: 1
-  _maxQuantity: 5
+  - {fileID: 11400000, guid: 121498468c56c7f4a93772c2f9da9cb2, type: 2}
+  - {fileID: 11400000, guid: 5bddcb5e3dd20a14e914d680345336cd, type: 2}
+  - {fileID: 11400000, guid: f5c538a715b491043b45e6b662f3605d, type: 2}
+  - {fileID: 11400000, guid: fe1cdc2729bf4d144bcc17a0a47f3b76, type: 2}
+  _minItems: 1
+  _maxItems: 2
+  _minQuantity: 5
+  _maxQuantity: 8
   _averageGold: 50
-  _craftingMaterials: []
   _quantity: 
   _gold: 0
 --- !u!1 &3553037676032597602
